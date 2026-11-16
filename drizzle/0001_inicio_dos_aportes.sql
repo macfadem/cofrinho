@@ -1,0 +1,1 @@
+ALTER TABLE `settings` ADD `aportes_desde` text;

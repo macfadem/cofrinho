@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Modo escuro pela classe .dark no <html> (definida pelo script de tema no layout). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-figtree), ui-sans-serif,
+    system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-overlay: var(--overlay);
+
+  /* Cores do Cofrinho */
+  --color-rosa: var(--rosa);
+  --color-rosa-suave: var(--rosa-suave);
+  --color-rosa-tinta: var(--rosa-tinta);
+  --color-verde: var(--verde);
+  --color-verde-suave: var(--verde-suave);
+  --color-amarelo: var(--amarelo);
+  --color-amarelo-suave: var(--amarelo-suave);
+  --color-vermelho: var(--vermelho);
+  --color-vermelho-suave: var(--vermelho-suave);
+
+  --shadow-cartao: var(--sombra-cartao);
+  --shadow-flutuante: var(--sombra-flutuante);
+  --shadow-botao: var(--sombra-botao);
+}
+
+/* Claro: porcelana rosada, tinta ameixa, verde de progresso e o rosa do porquinho. */
+:root {
+  --background: #faf4f2;
+  --foreground: #2b1f24;
+  --card: #ffffff;
+  --card-foreground: #2b1f24;
+  --popover: #ffffff;
+  --popover-foreground: #2b1f24;
+  --primary: #127a55;
+  --primary-foreground: #ffffff;
+  --secondary: #f6e8ea;
+  --secondary-foreground: #6e2a3e;
+  --muted: #f4ecea;
+  --muted-foreground: #75636a;
+  --accent: #f4e9e7;
+  --accent-foreground: #2b1f24;
+  --destructive: #c2403f;
+  --border: #ece0dd;
+  --input: #e3d5d2;
+  --ring: #127a55;
+  --overlay: rgb(43 31 36 / 0.42);
+
+  --rosa: #d9587a;
+  --rosa-suave: #fbe3e9;
+  --rosa-tinta: #8e2f4a;
+  --verde: #127a55;
+  --verde-suave: #ddf2e7;
+  --amarelo: #8a5a00;
+  --amarelo-suave: #fff1cc;
+  --vermelho: #b83a3a;
+  --vermelho-suave: #fbe2e0;
+
+  --sombra-cartao: 0 1px 2px rgb(76 38 46 / 0.05),
+    0 10px 30px -14px rgb(76 38 46 / 0.22);
+  --sombra-flutuante: 0 2px 6px rgb(76 38 46 / 0.06),
+    0 24px 60px -20px rgb(76 38 46 / 0.35);
+  --sombra-botao: inset 0 1px 0 rgb(255 255 255 / 0.18),
+    0 6px 14px -8px rgb(18 122 85 / 0.7);
+
+  color-scheme: light;
+}
+
+.dark {
+  --background: #181215;
+  --foreground: #f6edef;
+  --card: #221a1e;
+  --card-foreground: #f6edef;
+  --popover: #2a2025;
+  --popover-foreground: #f6edef;
+  --primary: #3cc48e;
+  --primary-foreground: #0b2219;
+  --secondary: #3a2a30;
+  --secondary-foreground: #f6d9e0;
+  --muted: #2a2025;
+  --muted-foreground: #b3a2a9;
+  --accent: #30252a;
+  --accent-foreground: #f6edef;
+  --destructive: #f07a72;
+  --border: #382b31;
+  --input: #46363d;
+  --ring: #3cc48e;
+  --overlay: rgb(0 0 0 / 0.55);
+
+  --rosa: #ee8aa4;
+  --rosa-suave: #3d2530;
+  --rosa-tinta: #f6c1cf;
+  --verde: #3cc48e;
+  --verde-suave: #183a2c;
+  --amarelo: #f2c14e;
+  --amarelo-suave: #3a2f14;
+  --vermelho: #f07a72;
+  --vermelho-suave: #3f1e1e;
+
+  --sombra-cartao: 0 1px 2px rgb(0 0 0 / 0.3),
+    0 12px 32px -16px rgb(0 0 0 / 0.6);
+  --sombra-flutuante: 0 2px 8px rgb(0 0 0 / 0.35),
+    0 28px 64px -20px rgb(0 0 0 / 0.7);
+  --sombra-botao: 0 6px 14px -8px rgb(60 196 142 / 0.55);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+}
+
+@utility numero {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

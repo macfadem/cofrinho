@@ -1,0 +1,6 @@
+# Mesmas quebras de linha em qualquer sistema (evita diferenças falsas no Windows).
+* text=auto eol=lf
+*.woff2 binary
+*.png binary
+*.ico binary
+*.db binary
